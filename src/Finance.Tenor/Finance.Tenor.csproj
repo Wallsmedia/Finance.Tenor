@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net452;net462;net472;netstandard2.0</TargetFrameworks>
+    <AssemblyVersion>$(CoreVersion)</AssemblyVersion>
+    <FileVersion>$(CoreVersion)</FileVersion>
+    <Version>$(CoreVersion)</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>7.2</LangVersion>
+    <DocumentationFile></DocumentationFile>
+    <PackageReleaseNotes>
+      The best and fast performances tenor implementation.
+</PackageReleaseNotes>
+    <RootNamespace>Finance.Period</RootNamespace>
+    <PackageId>Finance.Tenor</PackageId>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\build\Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageOutputPath>../../.nupkgs</PackageOutputPath>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+  
+</Project>
