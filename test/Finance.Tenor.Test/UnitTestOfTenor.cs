@@ -10,9 +10,9 @@ namespace Finance.Period.Test
     public class UnitTestOfTenor
     {
         [TestMethod]
-        public void TestParse_Constructor_PositiveResult()
+        public void TestTenor_Constructor_PositiveResult()
         {
-           Tenor tenor = new Tenor(1, 1, 1, 1);
+            Tenor tenor = new Tenor(1, 1, 1, 1);
             Assert.AreEqual(1, tenor.Years);
             Assert.AreEqual(1, tenor.Months);
             Assert.AreEqual(1, tenor.Weeks);
@@ -20,71 +20,73 @@ namespace Finance.Period.Test
         }
 
         [TestMethod]
-        public void TestParse_Constructor_Negative1()
+        public void TestTenor_Constructor_Negative1()
         {
             Assert.ThrowsException<ArgumentOutOfRangeException>(() =>
             {
-               Tenor tenor = new Tenor(-1, 1, 1, 1);
+                Tenor tenor = new Tenor(-1, 1, 1, 1);
             });
         }
 
         [TestMethod]
-        public void TestParse_Constructor_Negative2()
+        public void TestTenor_Constructor_Negative2()
         {
             Assert.ThrowsException<ArgumentOutOfRangeException>(() =>
             {
-               Tenor tenor = new Tenor(1, -1, 1, 1);
+                Tenor tenor = new Tenor(1, -1, 1, 1);
             });
         }
 
 
         [TestMethod]
-        public void TestParse_Constructor_Negative3()
+        public void TestTenor_Constructor_Negative3()
         {
             Assert.ThrowsException<ArgumentOutOfRangeException>(() =>
             {
-               Tenor tenor = new Tenor(1, 1, -1, 1);
+                Tenor tenor = new Tenor(1, 1, -1, 1);
             });
         }
 
         [TestMethod]
-        public void TestParse_Constructor_Negative4()
+        public void TestTenor_Constructor_Negative4()
         {
             Assert.ThrowsException<ArgumentOutOfRangeException>(() =>
             {
-               Tenor tenor = new Tenor(1, 1, 1, -1);
+                Tenor tenor = new Tenor(1, 1, 1, -1);
             });
         }
 
         [TestMethod]
-        public void TestParse_Compare_Positive()
+        public void TestTenor_Compare_Positive()
         {
-           Tenor tenorLow = new Tenor(0, 0, 0, 1);
-           Tenor tenorMid = new Tenor(0, 0, 1, 1);
-           Tenor tenorMid2 = new Tenor(0, 0, 0, 8);
-           Tenor tenorHigh = new Tenor(0, 1, 1, 1);
+            Tenor tenorLow = new Tenor(0, 0, 0, 1);
+            Tenor tenorMid = new Tenor(0, 0, 1, 1);
+            Tenor tenorMid2 = new Tenor(0, 0, 0, 8);
+            Tenor tenorHigh = new Tenor(0, 1, 1, 1);
 
-            Assert.AreEqual(-1,Tenor.Compare(tenorLow, tenorMid));
-            Assert.AreEqual(-1,Tenor.Compare(tenorLow, tenorHigh));
-            Assert.AreEqual(-1,Tenor.Compare(tenorMid, tenorHigh));
+            var r = tenorLow == tenorMid;
 
-            Assert.AreEqual(0,Tenor.Compare(tenorLow, tenorLow));
-            Assert.AreEqual(0,Tenor.Compare(tenorMid, tenorMid));
-            Assert.AreEqual(0,Tenor.Compare(tenorMid, tenorMid2));
-            Assert.AreEqual(0,Tenor.Compare(tenorHigh, tenorHigh));
+            Assert.AreEqual(-1, Tenor.Compare(tenorLow, tenorMid));
+            Assert.AreEqual(-1, Tenor.Compare(tenorLow, tenorHigh));
+            Assert.AreEqual(-1, Tenor.Compare(tenorMid, tenorHigh));
 
-            Assert.AreEqual(1,Tenor.Compare(tenorMid, tenorLow));
-            Assert.AreEqual(1,Tenor.Compare(tenorHigh, tenorLow));
-            Assert.AreEqual(1,Tenor.Compare(tenorHigh, tenorMid));
+            Assert.AreEqual(0, Tenor.Compare(tenorLow, tenorLow));
+            Assert.AreEqual(0, Tenor.Compare(tenorMid, tenorMid));
+            Assert.AreEqual(0, Tenor.Compare(tenorMid, tenorMid2));
+            Assert.AreEqual(0, Tenor.Compare(tenorHigh, tenorHigh));
+
+            Assert.AreEqual(1, Tenor.Compare(tenorMid, tenorLow));
+            Assert.AreEqual(1, Tenor.Compare(tenorHigh, tenorLow));
+            Assert.AreEqual(1, Tenor.Compare(tenorHigh, tenorMid));
         }
 
         [TestMethod]
-        public void TestParse_CompareTo_Positive1()
+        public void TestTenor_CompareTo_Positive1()
         {
-           Tenor tenorLow = new Tenor(0, 0, 0, 1);
-           Tenor tenorMid = new Tenor(0, 0, 1, 1);
-           Tenor tenorMid2 = new Tenor(0, 0, 0, 8);
-           Tenor tenorHigh = new Tenor(0, 1, 1, 1);
+            Tenor tenorLow = new Tenor(0, 0, 0, 1);
+            Tenor tenorMid = new Tenor(0, 0, 1, 1);
+            Tenor tenorMid2 = new Tenor(0, 0, 0, 8);
+            Tenor tenorHigh = new Tenor(0, 1, 1, 1);
 
             Assert.AreEqual(-1, tenorLow.CompareTo(tenorMid));
             Assert.AreEqual(-1, tenorLow.CompareTo(tenorHigh));
@@ -101,25 +103,25 @@ namespace Finance.Period.Test
         }
 
         [TestMethod]
-        public void TestParse_CompareTo_Positive2()
+        public void TestTenor_CompareTo_Positive2()
         {
-           Tenor tenorLow = new Tenor(0, 0, 0, 1);
-           Tenor tenorMid = new Tenor(0, 0, 1, 1);
-           Tenor tenorMid2 = new Tenor(0, 0, 0, 8);
-           Tenor tenorHigh = new Tenor(0, 1, 1, 1);
+            Tenor tenorLow = new Tenor(0, 0, 0, 1);
+            Tenor tenorMid = new Tenor(0, 0, 1, 1);
+            Tenor tenorMid2 = new Tenor(0, 0, 0, 8);
+            Tenor tenorHigh = new Tenor(0, 1, 1, 1);
 
-            Assert.AreEqual(-1, tenorLow.CompareTo((object)tenorMid));
-            Assert.AreEqual(-1, tenorLow.CompareTo((object)tenorHigh));
-            Assert.AreEqual(-1, tenorMid.CompareTo((object)tenorHigh));
+            Assert.AreEqual(-1, tenorLow.CompareTo((object) tenorMid));
+            Assert.AreEqual(-1, tenorLow.CompareTo((object) tenorHigh));
+            Assert.AreEqual(-1, tenorMid.CompareTo((object) tenorHigh));
 
-            Assert.AreEqual(0, tenorLow.CompareTo((object)tenorLow));
-            Assert.AreEqual(0, tenorMid.CompareTo((object)tenorMid));
-            Assert.AreEqual(0, tenorMid.CompareTo((object)tenorMid2));
-            Assert.AreEqual(0, tenorHigh.CompareTo((object)tenorHigh));
+            Assert.AreEqual(0, tenorLow.CompareTo((object) tenorLow));
+            Assert.AreEqual(0, tenorMid.CompareTo((object) tenorMid));
+            Assert.AreEqual(0, tenorMid.CompareTo((object) tenorMid2));
+            Assert.AreEqual(0, tenorHigh.CompareTo((object) tenorHigh));
 
-            Assert.AreEqual(1, tenorMid.CompareTo((object)tenorLow));
-            Assert.AreEqual(1, tenorHigh.CompareTo((object)tenorLow));
-            Assert.AreEqual(1, tenorHigh.CompareTo((object)tenorMid));
+            Assert.AreEqual(1, tenorMid.CompareTo((object) tenorLow));
+            Assert.AreEqual(1, tenorHigh.CompareTo((object) tenorLow));
+            Assert.AreEqual(1, tenorHigh.CompareTo((object) tenorMid));
 
             Assert.AreEqual(1, tenorMid.CompareTo(null));
             Assert.AreEqual(1, tenorHigh.CompareTo(null));
@@ -127,19 +129,22 @@ namespace Finance.Period.Test
 
         }
 
-        public void TestParse_CompareTo_Negative2()
+        public void TestTenor_CompareTo_Negative2()
         {
-           Tenor tenorLow = new Tenor(0, 0, 0, 1);
-            Assert.ThrowsException<ArgumentException>(() => { var x =tenorLow.CompareTo(new object()); });
+            Tenor tenorLow = new Tenor(0, 0, 0, 1);
+            Assert.ThrowsException<ArgumentException>(() =>
+            {
+                var x = tenorLow.CompareTo(new object());
+            });
         }
 
         [TestMethod]
-        public void TestParse_Equals_Positive1()
+        public void TestTenor_Equals_Positive1()
         {
-           Tenor tenorLow = new Tenor(0, 0, 0, 1);
-           Tenor tenorMid = new Tenor(0, 0, 1, 1);
-           Tenor tenorMid2 = new Tenor(0, 0, 0, 8);
-           Tenor tenorHigh = new Tenor(0, 1, 1, 1);
+            Tenor tenorLow = new Tenor(0, 0, 0, 1);
+            Tenor tenorMid = new Tenor(0, 0, 1, 1);
+            Tenor tenorMid2 = new Tenor(0, 0, 0, 8);
+            Tenor tenorHigh = new Tenor(0, 1, 1, 1);
 
             Assert.AreEqual(false, tenorLow.Equals(tenorMid));
             Assert.AreEqual(false, tenorLow.Equals(tenorHigh));
@@ -157,25 +162,25 @@ namespace Finance.Period.Test
 
 
         [TestMethod]
-        public void TestParse_Equals_Positive2()
+        public void TestTenor_Equals_Positive2()
         {
-           Tenor tenorLow = new Tenor(0, 0, 0, 1);
-           Tenor tenorMid = new Tenor(0, 0, 1, 1);
-           Tenor tenorMid2 = new Tenor(0, 0, 0, 8);
-           Tenor tenorHigh = new Tenor(0, 1, 1, 1);
+            Tenor tenorLow = new Tenor(0, 0, 0, 1);
+            Tenor tenorMid = new Tenor(0, 0, 1, 1);
+            Tenor tenorMid2 = new Tenor(0, 0, 0, 8);
+            Tenor tenorHigh = new Tenor(0, 1, 1, 1);
 
-            Assert.AreEqual(false, tenorLow.Equals((object)tenorMid));
-            Assert.AreEqual(false, tenorLow.Equals((object)tenorHigh));
-            Assert.AreEqual(false, tenorMid.Equals((object)tenorHigh));
+            Assert.AreEqual(false, tenorLow.Equals((object) tenorMid));
+            Assert.AreEqual(false, tenorLow.Equals((object) tenorHigh));
+            Assert.AreEqual(false, tenorMid.Equals((object) tenorHigh));
 
-            Assert.AreEqual(true, tenorLow.Equals((object)tenorLow));
-            Assert.AreEqual(true, tenorMid.Equals((object)tenorMid));
-            Assert.AreEqual(true, tenorMid.Equals((object)tenorMid2));
-            Assert.AreEqual(true, tenorHigh.Equals((object)tenorHigh));
+            Assert.AreEqual(true, tenorLow.Equals((object) tenorLow));
+            Assert.AreEqual(true, tenorMid.Equals((object) tenorMid));
+            Assert.AreEqual(true, tenorMid.Equals((object) tenorMid2));
+            Assert.AreEqual(true, tenorHigh.Equals((object) tenorHigh));
 
-            Assert.AreEqual(false, tenorMid.Equals((object)tenorLow));
-            Assert.AreEqual(false, tenorHigh.Equals((object)tenorLow));
-            Assert.AreEqual(false, tenorHigh.Equals((object)tenorMid));
+            Assert.AreEqual(false, tenorMid.Equals((object) tenorLow));
+            Assert.AreEqual(false, tenorHigh.Equals((object) tenorLow));
+            Assert.AreEqual(false, tenorHigh.Equals((object) tenorMid));
 
             Assert.AreEqual(false, tenorMid.Equals(null));
             Assert.AreEqual(false, tenorHigh.Equals(null));
@@ -184,45 +189,45 @@ namespace Finance.Period.Test
         }
 
         [TestMethod]
-        public void TestParse_Equals_Positive()
+        public void TestTenor_Equals_Positive()
         {
-           Tenor tenorLow = new Tenor(0, 0, 0, 1);
-           Tenor tenorMid = new Tenor(0, 0, 1, 1);
-           Tenor tenorMid2 = new Tenor(0, 0, 0, 8);
-           Tenor tenorHigh = new Tenor(0, 1, 1, 1);
+            Tenor tenorLow = new Tenor(0, 0, 0, 1);
+            Tenor tenorMid = new Tenor(0, 0, 1, 1);
+            Tenor tenorMid2 = new Tenor(0, 0, 0, 8);
+            Tenor tenorHigh = new Tenor(0, 1, 1, 1);
 
-            Assert.AreEqual(false,Tenor.Equals(tenorLow, tenorMid));
-            Assert.AreEqual(false,Tenor.Equals(tenorLow, tenorHigh));
-            Assert.AreEqual(false,Tenor.Equals(tenorMid, tenorHigh));
+            Assert.AreEqual(false, Tenor.Equals(tenorLow, tenorMid));
+            Assert.AreEqual(false, Tenor.Equals(tenorLow, tenorHigh));
+            Assert.AreEqual(false, Tenor.Equals(tenorMid, tenorHigh));
 
-            Assert.AreEqual(true,Tenor.Equals(tenorLow, tenorLow));
-            Assert.AreEqual(true,Tenor.Equals(tenorMid, tenorMid));
-            Assert.AreEqual(true,Tenor.Equals(tenorMid, tenorMid2));
-            Assert.AreEqual(true,Tenor.Equals(tenorHigh, tenorHigh));
+            Assert.AreEqual(true, Tenor.Equals(tenorLow, tenorLow));
+            Assert.AreEqual(true, Tenor.Equals(tenorMid, tenorMid));
+            Assert.AreEqual(true, Tenor.Equals(tenorMid, tenorMid2));
+            Assert.AreEqual(true, Tenor.Equals(tenorHigh, tenorHigh));
 
-            Assert.AreEqual(false,Tenor.Equals(tenorMid, tenorLow));
-            Assert.AreEqual(false,Tenor.Equals(tenorHigh, tenorLow));
-            Assert.AreEqual(false,Tenor.Equals(tenorHigh, tenorMid));
+            Assert.AreEqual(false, Tenor.Equals(tenorMid, tenorLow));
+            Assert.AreEqual(false, Tenor.Equals(tenorHigh, tenorLow));
+            Assert.AreEqual(false, Tenor.Equals(tenorHigh, tenorMid));
         }
 
         [TestMethod]
-        public void TestParse_GetHashCode_Positive()
+        public void TestTenor_GetHashCode_Positive()
         {
             var tenorLow = new Tenor(0, 0, 0, 1).GetHashCode();
             var tenorMid = new Tenor(0, 0, 1, 1).GetHashCode();
             var tenorMid2 = new Tenor(0, 0, 0, 8).GetHashCode();
             var tenorHigh = new Tenor(0, 1, 1, 1).GetHashCode();
 
-            Assert.AreNotSame(tenorLow,tenorMid);
-            Assert.AreNotSame(tenorLow,tenorMid2);
-            Assert.AreNotSame(tenorMid,tenorMid2);
-            Assert.AreNotSame(tenorLow,tenorHigh);
-            Assert.AreNotSame(tenorMid,tenorHigh);
-            
+            Assert.AreNotSame(tenorLow, tenorMid);
+            Assert.AreNotSame(tenorLow, tenorMid2);
+            Assert.AreNotSame(tenorMid, tenorMid2);
+            Assert.AreNotSame(tenorLow, tenorHigh);
+            Assert.AreNotSame(tenorMid, tenorHigh);
+
         }
 
         [TestMethod]
-        public void TestParse_ToString_Positive()
+        public void TestTenor_ToString_Positive()
         {
             var tenorEmpty = new Tenor().ToString();
             var tenorLow = new Tenor(0, 0, 0, 1).ToString();
@@ -235,6 +240,61 @@ namespace Finance.Period.Test
             Assert.AreEqual("1w1d", tenorMid);
             Assert.AreEqual("8d", tenorMid2);
             Assert.AreEqual("1y1m1w1d", tenorHigh);
+        }
+
+        [TestMethod]
+        public void TestTenor_CompareOperators()
+        {
+            Tenor tenorLow = new Tenor(0, 0, 0, 1);
+            Tenor tenorMid = new Tenor(0, 0, 1, 1);
+            Tenor tenorMid2 = new Tenor(0, 0, 0, 8);
+            Tenor tenorHigh = new Tenor(0, 1, 1, 1);
+
+            Assert.IsTrue(tenorLow < tenorMid);
+            Assert.IsTrue(tenorLow < tenorHigh);
+            Assert.IsTrue(tenorMid < tenorHigh);
+            Assert.IsTrue(tenorMid2 < tenorHigh);
+
+            Assert.IsTrue(tenorLow != tenorMid);
+            Assert.IsTrue(tenorLow != tenorHigh);
+            Assert.IsTrue(tenorMid != tenorHigh);
+            Assert.IsTrue(tenorMid2 != tenorHigh);
+
+            Assert.IsTrue(tenorLow == tenorLow);
+            Assert.IsTrue(tenorMid == tenorMid);
+            Assert.IsTrue(tenorMid == tenorMid2);
+            Assert.IsTrue(tenorHigh == tenorHigh);
+
+            Assert.IsTrue(tenorLow >= tenorLow);
+            Assert.IsTrue(tenorMid >= tenorMid);
+            Assert.IsTrue(tenorMid >= tenorMid2);
+            Assert.IsTrue(tenorHigh >= tenorHigh);
+
+            Assert.IsTrue(tenorLow <= tenorLow);
+            Assert.IsTrue(tenorMid <= tenorMid);
+            Assert.IsTrue(tenorMid <= tenorMid2);
+            Assert.IsTrue(tenorHigh <= tenorHigh);
+
+            Assert.IsTrue(tenorMid > tenorLow);
+            Assert.IsTrue(tenorHigh > tenorLow);
+            Assert.IsTrue(tenorHigh > tenorMid);
+
+        }
+
+        [TestMethod]
+        public void TestTenor_12m_is_1y()
+        {
+            var tenor12m = new Tenor(0, 12, 0, 0);
+            var tenor1y = new Tenor(1, 0, 0, 0);
+            Assert.IsTrue(tenor1y == tenor12m);
+        }
+
+        [TestMethod]
+        public void TestTenor_7d_is_1w()
+        {
+            var tenor7d = new Tenor(0, 0, 0, 7);
+            var tenor1w = new Tenor(0, 0, 1, 0);
+            Assert.IsTrue(tenor1w == tenor7d);
         }
 
     }

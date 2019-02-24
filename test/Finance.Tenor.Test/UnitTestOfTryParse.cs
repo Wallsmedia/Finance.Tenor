@@ -10,7 +10,7 @@ namespace Finance.Period.Test
     public class UnitTestOfTryParse
     {
         [TestMethod]
-        public void TestParse_1y_PositiveResult()
+        public void TestTryParse_1y_PositiveResult()
         {
             string tenor = "1y";
             bool flag =Tenor.TryParse(tenor, out Tenor res);
@@ -22,7 +22,7 @@ namespace Finance.Period.Test
         }
 
         [TestMethod]
-        public void TestParse_1y1m_PositiveResult()
+        public void TestTryParse_1y1m_PositiveResult()
         {
             string tenor = "1y1m";
             bool flag =Tenor.TryParse(tenor, out Tenor res);
@@ -34,7 +34,7 @@ namespace Finance.Period.Test
         }
 
         [TestMethod]
-        public void TestParse_1y1m1w_PositiveResult()
+        public void TestTryParse_1y1m1w_PositiveResult()
         {
             string tenor = "1y1m1w";
             bool flag =Tenor.TryParse(tenor, out Tenor res);
@@ -46,7 +46,7 @@ namespace Finance.Period.Test
         }
 
         [TestMethod]
-        public void TestParse_1y1m1w1d_PositiveResult()
+        public void TestTryParse_1y1m1w1d_PositiveResult()
         {
             string tenor = "1y1m1w1d";
             bool flag =Tenor.TryParse(tenor, out Tenor res);
@@ -58,7 +58,7 @@ namespace Finance.Period.Test
         }
 
         [TestMethod]
-        public void TestParse_1d1w1m1y_PositiveResult()
+        public void TestTryParse_1d1w1m1y_PositiveResult()
         {
             string tenor = "1d1w1m1y";
             bool flag =Tenor.TryParse(tenor, out Tenor res);
@@ -70,7 +70,7 @@ namespace Finance.Period.Test
         }
 
         [TestMethod]
-        public void TestParse_y1_Negative()
+        public void TestTryParse_y1_Negative()
         {
             string tenor = "y1";
             bool flag =Tenor.TryParse(tenor, out Tenor res);
@@ -78,7 +78,7 @@ namespace Finance.Period.Test
         }
 
         [TestMethod]
-        public void TestParse_1ym_Negative()
+        public void TestTryParse_1ym_Negative()
         {
             string tenor = "1ym";
             bool flag =Tenor.TryParse(tenor, out Tenor res);
@@ -86,7 +86,7 @@ namespace Finance.Period.Test
         }
 
         [TestMethod]
-        public void TestParse_1y1m1q_Negative()
+        public void TestTryParse_1y1m1q_Negative()
         {
             string tenor = "1y1m1q";
             bool flag =Tenor.TryParse(tenor, out Tenor res);
@@ -94,7 +94,7 @@ namespace Finance.Period.Test
         }
 
         [TestMethod]
-        public void TestParse_empty_Negative()
+        public void TestTryParse_empty_Negative()
         {
             string tenor = "";
             bool flag =Tenor.TryParse(tenor, out Tenor res);
@@ -102,7 +102,7 @@ namespace Finance.Period.Test
         }
 
         [TestMethod]
-        public void TestParse_null_Negative()
+        public void TestTryParse_null_Negative()
         {
             string tenor = null;
             bool flag =Tenor.TryParse(tenor, out Tenor res);

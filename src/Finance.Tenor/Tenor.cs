@@ -46,7 +46,7 @@ namespace Finance.Period
             Weeks = weeks;
             Days = days;
             // calculations for comparison reasons only
-            _totalDays = years * 365 + months * 30 + weeks * 7 + days;
+            _totalDays = years * 360 + months * 30 + weeks * 7 + days;
         }
 
         /// <summary>
@@ -174,6 +174,40 @@ namespace Finance.Period
                               (Weeks > 0 ? Weeks + "w" : string.Empty) + (Days > 0 ? Days + "d" : string.Empty);
             return tenorStr;
         }
-       
+
+        #region Comparison Operators
+
+        public static bool operator ==(Tenor t1, Tenor t2)
+        {
+            return t1._totalDays == t2._totalDays;
+        }
+
+        public static bool operator !=(Tenor t1, Tenor t2)
+        {
+            return t1._totalDays != t2._totalDays;
+        }
+
+        public static bool operator <(Tenor t1, Tenor t2)
+        {
+            return t1._totalDays < t2._totalDays;
+        }
+
+        public static bool operator <=(Tenor t1, Tenor t2)
+        {
+            return t1._totalDays <= t2._totalDays;
+        }
+
+        public static bool operator >(Tenor t1, Tenor t2)
+        {
+            return t1._totalDays > t2._totalDays;
+        }
+
+        public static bool operator >=(Tenor t1, Tenor t2)
+        {
+            return t1._totalDays >= t2._totalDays;
+        }
+
+        #endregion
+
     }
 }

@@ -1,5 +1,12 @@
 # Finance.Tenor
 
+#### Version 2.1.0
+- Add support comparison operators "<" ">" "==" "!=" ">=" "<=".
+- Supported 1y == 12m 
+- Supported 1m == 30d 
+- Supported 1w == 7d 
+
+
 #### Version 2.0.0
  - NetStandard 2.0
  - Net 4.7.2
@@ -35,4 +42,30 @@ Tenor can also refer to the payment frequency on an interest rate swap.
 - 1w1d
 - 1y6m2d5w
 
+Code usage examples:
+
+``` c#
+    // Create  tenor "1y1m1w1d"
+    Tenor tenor = new Tenor(1, 1, 1, 1);
+```
+
+``` c#
+    // Parse  tenor 
+    string tenor = "1m1w1d1y";
+    Tenor res =Tenor.Parse(tenor);
+```
+
+``` c#
+    // Compare  tenors 
+    string tenor1w = "1w";
+    string tenor7d = "7d";
+    Tenor t1w =Tenor.Parse(tenor1w);
+    Tenor t7d =Tenor.Parse(tenor7d);
+
+    if( t1w == 7d)
+    {
+    
+    }
+
+```
 
