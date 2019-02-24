@@ -7,16 +7,15 @@
     <Version>$(CoreVersion)</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>7.2</LangVersion>
-    <DocumentationFile></DocumentationFile>
-    <PackageReleaseNotes>
-      The best and fast performances tenor implementation.
-</PackageReleaseNotes>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <RootNamespace>Finance.Period</RootNamespace>
     <PackageId>Finance.Tenor</PackageId>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\build\Key.snk</AssemblyOriginatorKeyFile>
+    <OutputType>Library</OutputType>
+    <PackageTags>Tenor</PackageTags>
   </PropertyGroup>
-  
+    
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageOutputPath>../../.nupkgs</PackageOutputPath>

@@ -7,19 +7,19 @@
     <Company>Wallsmedia Ltd.</Company>
     <Product>Finance Tenor</Product>
     <Description>
-      The best and fast performances tenor implementation.
+      The best and fast implementation of the finance tenor.
     </Description>
     <PackageProjectUrl>http://github.com/Wallsmedia/Finance.Tenor</PackageProjectUrl>
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/Wallsmedia/Finance.Tenor</RepositoryUrl>
     <ApplicationIcon />
-    <OutputType>Library</OutputType>
-    <PackageTags>Tenor</PackageTags>
     <PackageReleaseNotes>
-      The best and fast performances tenor implementation.
+      Low temporary memory usage/allocations, i.e. Low GC/CLR Gen0 memory pressure.
+      Ultra fast parsing.
+      Multi-target frameworks.
+      Supports comparison operations.
     </PackageReleaseNotes>
-
   </PropertyGroup>
-  
+
 </Project>

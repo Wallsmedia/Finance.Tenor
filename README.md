@@ -1,11 +1,12 @@
 # Finance.Tenor
+- The best and fast implementation of the finance tenor.
+- Low GC Gen0 memory pressure when parsing millions tenors. 
 
 #### Version 2.1.0
 - Add support comparison operators "<" ">" "==" "!=" ">=" "<=".
 - Supported 1y == 12m 
 - Supported 1m == 30d 
 - Supported 1w == 7d 
-
 
 #### Version 2.0.0
  - NetStandard 2.0
@@ -15,12 +16,9 @@
 
  ## Nuget.org
 
-- Nuget package [Finance.Tenor](https://www.nuget.org/packages/Finance.Tenor/)
+- Nuget package can be downloaded from [Finance.Tenor](https://www.nuget.org/packages/Finance.Tenor/)
 
 ## Tenor
-The best and fast implementation of the tenor. Low GC Gen0 memory pressure when parsing millions tenors. 
-
-Nuget package can be down
 
 [Tenor](https://www.investopedia.com/terms/t/tenor.asp) in finance can have multiple usages, but it most commonly refers to the amount of time left for the repayment 
 of a loan or until a financial contract expires. It is most commonly used for non - standardized contracts, such as foreign 
@@ -28,7 +26,7 @@ exchange and interest rate swaps, while the term "maturity" is usually used to e
 Tenor can also refer to the payment frequency on an interest rate swap.
 
 
-**The tenor can be in the following formats:**
+**The tenor string can be in the following formats:**
 
 - Xd = X day;
 - Yw = Y week
