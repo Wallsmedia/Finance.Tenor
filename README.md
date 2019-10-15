@@ -2,6 +2,14 @@
 - The best and fast implementation of the finance tenor.
 - Low GC Gen0 memory pressure when parsing millions tenors. 
 
+### Development Supported by JetBrains Open Source Program:
+
+<a href="https://www.jetbrains.com/?from=XmlResult"> <img src="https://github.com/Wallsmedia/XmlResult/blob/master/Logo/rider/logo.png?raw=true" Width="40p" /></a> **Fast & powerful,
+cross platform .NET IDE**
+
+<a href="https://www.jetbrains.com/?from=XmlResult"> <img src="https://github.com/Wallsmedia/XmlResult/blob/master/Logo/resharper/logo.png?raw=true" Width="40p" /></a> **The Visual Studio Extension for .NET Developers**
+
+
 #### Version 2.1.0
 - Add support comparison operators "<" ">" "==" "!=" ">=" "<=".
 - Supported 1y == 12m 
