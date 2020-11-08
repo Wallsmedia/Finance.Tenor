@@ -1,4 +1,4 @@
-﻿// Copyright © Alexander Paskhin 2018. All rights reserved.
+﻿// Copyright © Alexander Paskhin 2018-2020. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
@@ -10,11 +10,7 @@ namespace Finance.Period
     /// <summary>
     /// Tokenizer a <c>string</c> into <see cref="TenorSegment"/>s.
     /// </summary>
-#if NET452 || NET462
-    public readonly struct TenorSegmentTokenizer : IEnumerable<Tuple<TenorSegment, char>>
-#else
     public readonly struct TenorSegmentTokenizer : IEnumerable<(TenorSegment, char)>
-#endif
     {
         private readonly TenorSegment _value;
         private readonly char[] _separators;
@@ -63,18 +59,11 @@ namespace Finance.Period
 
         public Enumerator GetEnumerator() => new Enumerator(in _value, _separators);
 
-#if NET452 || NET462
-        IEnumerator<Tuple<TenorSegment, char>> IEnumerable<Tuple<TenorSegment, char>>.GetEnumerator() => GetEnumerator();
-#else
         IEnumerator<(TenorSegment, char)> IEnumerable<(TenorSegment, char)>.GetEnumerator() => GetEnumerator();
-#endif
+
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
-#if NET452 || NET462
-        public struct Enumerator : IEnumerator<Tuple<TenorSegment, char>>
-#else
         public struct Enumerator : IEnumerator<(TenorSegment, char)>
-#endif
         {
             private readonly TenorSegment _value;
             private readonly char[] _separators;
@@ -92,19 +81,11 @@ namespace Finance.Period
             {
                 _value = tokenizer._value;
                 _separators = tokenizer._separators;
-#if NET452 || NET462
-                Current = default(Tuple<TenorSegment, char>);
-#else
                 Current = default((TenorSegment, char));
-#endif
                 _index = 0;
             }
 
-#if NET452 || NET462
-            public Tuple<TenorSegment, char> Current { get; private set; }
-#else
             public (TenorSegment, char) Current { get; private set; }
-#endif
 
             object IEnumerator.Current => Current;
 
@@ -117,11 +98,7 @@ namespace Finance.Period
                 char sep = default(char);
                 if (!_value.HasValue || _index >= _value.Length)
                 {
-#if NET452 || NET462
-                    Current = default(Tuple<TenorSegment, char>);
-#else
                     Current = default((TenorSegment, char));
-#endif
                     return false;
                 }
 
@@ -136,11 +113,7 @@ namespace Finance.Period
                     sep = _value[next];
                 }
 
-#if NET452 || NET462
-                Current = new Tuple<TenorSegment, char>(_value.Subsegment(_index, next - _index),sep);
-#else
                 Current = (_value.Subsegment(_index, next - _index), sep);
-#endif
                 _index = next + 1;
 
                 return true;
@@ -148,11 +121,7 @@ namespace Finance.Period
 
             public void Reset()
             {
-#if NET452 || NET462
-                Current = default(Tuple<TenorSegment, char>);
-#else
                 Current = default((TenorSegment, char));
-#endif
                 _index = 0;
             }
         }

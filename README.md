@@ -10,17 +10,15 @@ cross platform .NET IDE**
 <a href="https://www.jetbrains.com/?from=XmlResult"> <img src="https://github.com/Wallsmedia/XmlResult/blob/master/Logo/resharper/logo.png?raw=true" Width="40p" /></a> **The Visual Studio Extension for .NET Developers**
 
 
-#### Version 2.1.0
+#### Version 3.0.0
 - Add support comparison operators "<" ">" "==" "!=" ">=" "<=".
 - Supported 1y == 12m 
 - Supported 1m == 30d 
 - Supported 1w == 7d 
 
-#### Version 2.0.0
+#### Version 3.0.0
  - NetStandard 2.0
- - Net 4.7.2
- - Net 4.6.2
- - Net 4.5.2
+ - NetStandard 2.1
 
  ## Nuget.org
 
@@ -32,6 +30,20 @@ cross platform .NET IDE**
 of a loan or until a financial contract expires. It is most commonly used for non - standardized contracts, such as foreign 
 exchange and interest rate swaps, while the term "maturity" is usually used to express the same concept for government bonds and corporate bonds. 
 Tenor can also refer to the payment frequency on an interest rate swap.
+
+**DateTime & DateTimeOffset Extension
+
+Code usage examples:
+
+``` c#
+    // Create  tenor "1y1m1w1d"
+    Tenor tenor = new Tenor(1, 1, 1, 1);
+    var dateTime = DateTime.UtcNow;
+    dateTime = dateTime + tenor;
+     // or 
+    dateTime = dateTime - tenor;
+
+```
 
 
 **The tenor string can be in the following formats:**
