@@ -10,7 +10,6 @@
       The best and fast implementation of the finance tenor.
     </Description>
     <PackageProjectUrl>http://github.com/Wallsmedia/Finance.Tenor</PackageProjectUrl>
-    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/Wallsmedia/Finance.Tenor</RepositoryUrl>
     <ApplicationIcon />
